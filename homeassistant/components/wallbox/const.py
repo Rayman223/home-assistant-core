@@ -2,7 +2,7 @@
 
 from enum import StrEnum
 
-DOMAIN = "wallbox"
+DOMAIN = "wallbox_beta_ecosmart"
 UPDATE_INTERVAL = 90
 
 BIDIRECTIONAL_MODEL_PREFIXES = ["QS"]
