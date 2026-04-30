@@ -49,7 +49,7 @@ class WallboxButton(WallboxEntity, ButtonEntity):
         """Initialize a Wallbox button."""
         super().__init__(coordinator)
         self.entity_description = description
-        self._attr_unique_id = f"{description.key}-{coordinator.data[CHARGER_DATA_KEY][CHARGER_SERIAL_NUMBER_KEY]}"
+        self._attr_unique_id = f"{description.key}-{coordinator.data[CHARGER_DATA_KEY][CHARGER_SERIAL_NUMBER_KEY]}_beta"
 
     async def async_press(self) -> None:
         """Resume schedule and EcoSmart mode after a manual stop."""

@@ -1,6 +1,6 @@
 {
-  "domain": "wallbox",
-  "name": "Wallbox",
+  "domain": "wallbox_beta_ecosmart",
+  "name": "Wallbox_beta_ecosmart",
   "codeowners": ["@hesselonline"],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/wallbox",

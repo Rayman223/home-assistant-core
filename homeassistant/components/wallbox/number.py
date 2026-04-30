@@ -109,7 +109,7 @@ class WallboxNumber(WallboxEntity, NumberEntity):
         super().__init__(coordinator)
         self.entity_description = description
         self._coordinator = coordinator
-        self._attr_unique_id = f"{description.key}-{coordinator.data[CHARGER_DATA_KEY][CHARGER_SERIAL_NUMBER_KEY]}"
+        self._attr_unique_id = f"{description.key}-{coordinator.data[CHARGER_DATA_KEY][CHARGER_SERIAL_NUMBER_KEY]}_beta"
 
     @property
     def native_max_value(self) -> float:
