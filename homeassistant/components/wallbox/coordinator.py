@@ -393,16 +393,10 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         await self.async_request_refresh()
 
     def _resume_schedule(self) -> None:
-        """Resume schedule and EcoSmart mode after a manual stop (remote action 9)."""
+        """Resume schedule and EcoSmart mode after a manual stop."""
         try:
             self._wallbox.resumeSchedule(self._station)
         except requests.exceptions.HTTPError as wallbox_connection_error:
-            if wallbox_connection_error.response.status_code == 403:
-                raise InsufficientRights(
-                    translation_domain=DOMAIN,
-                    translation_key="insufficient_rights",
-                    hass=self.hass,
-                ) from wallbox_connection_error
             if wallbox_connection_error.response.status_code == 429:
                 raise HomeAssistantError(
                     translation_domain=DOMAIN, translation_key="too_many_requests"

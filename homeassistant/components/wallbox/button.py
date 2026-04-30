@@ -1,8 +1,4 @@
-"""Home Assistant component for accessing the Wallbox Portal API.
-
-The button component creates a button entity to resume schedule and EcoSmart
-mode after a manual stop (remote action 9).
-"""
+"""Home Assistant component for accessing the Wallbox Portal API. The button component creates a button entity."""
 
 from __future__ import annotations
 
@@ -43,9 +39,7 @@ PARALLEL_UPDATES = 0
 
 
 class WallboxButton(WallboxEntity, ButtonEntity):
-    """Representation of a Wallbox button."""
-
-    entity_description: ButtonEntityDescription
+    """Representation of the Wallbox portal."""
 
     def __init__(
         self,
@@ -58,5 +52,5 @@ class WallboxButton(WallboxEntity, ButtonEntity):
         self._attr_unique_id = f"{description.key}-{coordinator.data[CHARGER_DATA_KEY][CHARGER_SERIAL_NUMBER_KEY]}"
 
     async def async_press(self) -> None:
-        """Handle the button press: resume schedule and EcoSmart mode."""
+        """Resume schedule and EcoSmart mode after a manual stop."""
         await self.coordinator.async_resume_schedule()

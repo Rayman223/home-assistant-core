@@ -40,12 +40,12 @@ async def test_button_press_success(
     mock_resume.assert_called_once()
 
 
-async def test_button_press_insufficient_rights(
+async def test_button_press_http_403_error(
     hass: HomeAssistant,
     mock_wallbox: MagicMock,
     http_403_error: requests.exceptions.HTTPError,
 ) -> None:
-    """Test that a 403 response raises HomeAssistantError (InsufficientRights)."""
+    """Test that a 403 response raises HomeAssistantError with api_failed."""
     await setup_integration(hass)
 
     with (
